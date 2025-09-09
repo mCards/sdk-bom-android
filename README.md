@@ -53,3 +53,10 @@ dependencyResolutionManagement {
 ```
 
 Where GITHUB_TOKEN is a github personal access token that you generate. See https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens
+
+# Documentation
+[Documentation site](https://mcards.readme.io/)
+
+[SDKs conceptual documentation](https://mcards.readme.io/docs/mcards-sdk-overview)
+
+Password: mCardsDevDocs
