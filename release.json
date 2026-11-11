@@ -1,0 +1,13 @@
+{
+  "version": "1.0.19",
+  "referenceBom": {"repository": "Wantsa/sdk-bom-android-internal", "version": "1.0.19.26"},
+  "artifacts": [
+    {"group": "com.mcards.sdk", "name": "core", "version": "1.3.9.8", "repository": "Wantsa/sdk-core-android"},
+    {"group": "com.mcards.sdk", "name": "cards", "version": "1.2.0", "repository": "Wantsa/sdk-cards-android"},
+    {"group": "com.mcards.sdk", "name": "auth", "version": "1.2.8.6", "repository": "Wantsa/sdk-auth-android"},
+    {"group": "com.mcards.sdk", "name": "accounts", "version": "1.3.4.6", "repository": "Wantsa/sdk-accounts-android"},
+    {"group": "com.mcards.sdk", "name": "history", "version": "1.2.1.3", "repository": "Wantsa/sdk-history-android"},
+    {"group": "com.mcards.sdk", "name": "fm", "version": "1.1.6.2", "repository": "Wantsa/sdk-features-marketplace-android"},
+    {"group": "com.google.android.gms", "name": "play-services-tapandpay", "version": "18.3.3", "repository": "Wantsa/sdk-cards-android"}
+  ]
+}
