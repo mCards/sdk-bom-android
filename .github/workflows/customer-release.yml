@@ -1,0 +1,37 @@
+name: Customer SDK release
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: Publish the verified release (otherwise stage and verify only)
+        type: boolean
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: customer-sdk-release
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    environment: customer-sdk-release
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - name: Test release preparation
+        run: python3 -m unittest discover -s scripts -p 'test_*.py'
+      - name: Stage or publish pinned artifacts
+        env:
+          GH_PACKAGES_USER: ${{ vars.GH_PACKAGES_USER }}
+          GH_PACKAGES_READ_TOKEN: ${{ secrets.GH_PACKAGES_READ_TOKEN }}
+          GH_PACKAGES_WRITE_TOKEN: ${{ secrets.GH_PACKAGES_WRITE_TOKEN }}
+          PUBLISH: ${{ inputs.publish }}
+        run: |
+          if [ "$PUBLISH" = "true" ]; then
+            python3 scripts/release.py --publish
+          else
+            python3 scripts/release.py
+          fi
